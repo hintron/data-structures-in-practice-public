@@ -1,10 +1,12 @@
 #!/bin/bash
 
-if [ -d "output" ]; then
-    rm -rf output
+if [ -d "output/html" ]; then
+    rm -rf output/html
+fi
+if [ -d "output/pdf" ]; then
+    rm -rf output/pdf
 fi
 
-mkdir -p output
 mkdir -p output/html
 mkdir -p output/pdf
 
@@ -29,4 +31,3 @@ for file in $OUTPUT_DIR/html/*.html; do
     html_path=$(cygpath -w "$PWD/$file")
     "$CHROME_PATH" --headless --print-to-pdf="$pdf_path" "$html_path"
 done
-
