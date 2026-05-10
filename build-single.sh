@@ -11,7 +11,7 @@ OUTPUT_DIR="output"
 CHROME_PATH="/c/Program Files (x86)/Google/Chrome/Application/chrome.exe"
 
 # Build a single HTML file from all .md files
-pandoc.exe manuscript_mgh/*.md -o $OUTPUT_DIR/html_book/book.html -s -f commonmark
+pandoc.exe manuscript_mgh/*.md -o $OUTPUT_DIR/html_book/book.html -s -f commonmark+pipe_tables
 
 # Copy shared stylesheet and replace inline <style> blocks with a <link> tag
 cp styles.css "$OUTPUT_DIR/html_book/styles.css"

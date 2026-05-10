@@ -16,7 +16,7 @@ CHROME_PATH="/c/Program Files (x86)/Google/Chrome/Application/chrome.exe"
 
 # Create .html files from .md files
 for file in $INPUT_DIR/*.md; do
-    pandoc "$file" -o "$OUTPUT_DIR/html/$(basename "$file" .md).html" -s -f commonmark
+    pandoc "$file" -o "$OUTPUT_DIR/html/$(basename "$file" .md).html" -s -f commonmark+pipe_tables
 done
 
 # NOTE: Use commonmark instead of old-school markdown parser so lists work as initially written and to match GitHub.
