@@ -16,8 +16,11 @@ CHROME_PATH="/c/Program Files (x86)/Google/Chrome/Application/chrome.exe"
 
 # Create .html files from .md files
 for file in $INPUT_DIR/*.md; do
-    pandoc "$file" -o "$OUTPUT_DIR/html/$(basename "$file" .md).html" -s
+    pandoc "$file" -o "$OUTPUT_DIR/html/$(basename "$file" .md).html" -s -f commonmark
 done
+
+# NOTE: Use commonmark instead of old-school markdown parser so lists work as initially written and to match GitHub.
+# https://stackoverflow.com/a/54537596
 
 # Copy shared stylesheet and replace inline <style> blocks with a <link> tag
 cp styles.css "$OUTPUT_DIR/html/styles.css"
